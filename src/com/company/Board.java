@@ -23,7 +23,7 @@ public class Board {
 
     public void setupPieces(){
         for (int col = 0; col < this.COL_SIZE; col ++){
-            my_board[6][col].curr_piece.setPiece("W", "P");
+            my_board[6][col] = new Tile(new Piece("W", "P"));
         }
     }
 
