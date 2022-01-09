@@ -1,6 +1,6 @@
 # Chess Project
 
-## History
+## Change History
 
 ### 1/9/2022
 #### Changes
