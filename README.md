@@ -2,6 +2,10 @@
 
 ## History
 
+### 1/9/2022
+#### Changes
+- Updated printBoard() command to include row, col coordinates and also fixed spacing
+
 ### 1/7/2022
 #### Changes
 - Tile class constructor now takes a Piece object instead of color, type
