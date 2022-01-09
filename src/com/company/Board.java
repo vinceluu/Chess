@@ -24,8 +24,29 @@ public class Board {
     public void setupPieces(){
         for (int col = 0; col < this.COL_SIZE; col ++){
             my_board[6][col] = new Tile(new Piece("W", "P"));
+            my_board[1][col] = new Tile(new Piece("B", "P"));
         }
-        // add queen
+        //White
+        my_board[7][0] = new Tile(new Piece("W", "R"));
+        my_board[7][7] = new Tile(new Piece("W", "R"));
+        my_board[7][1] = new Tile(new Piece("W", "N"));
+        my_board[7][6] = new Tile(new Piece("W", "N"));
+        my_board[7][2] = new Tile(new Piece("W", "B"));
+        my_board[7][5] = new Tile(new Piece("W", "B"));
+        my_board[7][3] = new Tile(new Piece("W", "Q"));
+        my_board[7][4] = new Tile(new Piece("W", "K"));
+
+        //Black
+        my_board[0][0] = new Tile(new Piece("B", "R"));
+        my_board[0][7] = new Tile(new Piece("B", "R"));
+        my_board[0][1] = new Tile(new Piece("B", "N"));
+        my_board[0][6] = new Tile(new Piece("B", "N"));
+        my_board[0][2] = new Tile(new Piece("B", "B"));
+        my_board[0][5] = new Tile(new Piece("B", "B"));
+        my_board[0][3] = new Tile(new Piece("B", "Q"));
+        my_board[0][4] = new Tile(new Piece("B", "K"));
+
+        //Black
 
     }
 
