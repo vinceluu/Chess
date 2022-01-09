@@ -25,13 +25,11 @@ public class Board {
         for (int col = 0; col < this.COL_SIZE; col ++){
             my_board[6][col] = new Tile(new Piece("W", "P"));
         }
+        // add queen
+
     }
 
     public void displayLines(){
-        System.out.println();
-        for (int row = 0; row < ROW_SIZE; row ++) {
-            System.out.print("     | ");
-        }
         System.out.println();
         for (int col = 0; col < COL_SIZE; col ++) {
             System.out.print("-----| ");

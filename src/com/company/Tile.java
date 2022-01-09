@@ -1,11 +1,11 @@
 package com.company;
 
-import com.company.Piece;
-
 public class Tile {
 
-    Piece curr_piece = null;
+    Piece curr_piece;
     Boolean isOccupied = false;
+
+    Integer my_int = 5;
 
 
     public Tile(){
