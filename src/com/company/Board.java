@@ -31,6 +31,7 @@ public class Board {
 
     public void displayLines(){
         System.out.println();
+        System.out.print("  ");
         for (int col = 0; col < COL_SIZE; col ++) {
             System.out.print("-----| ");
         }
@@ -40,10 +41,15 @@ public class Board {
     public void printBoard(){
         System.out.println("Current Board: ");
         for (int row = 0; row < ROW_SIZE; row ++){
+            System.out.print(row + " ");
             for (int col = 0; col < COL_SIZE; col++){
                 System.out.print(" " + this.my_board[row][col].curr_piece.getPiece() + "  | ");
             }
             displayLines();
         }
+        for (int col = 0; col < COL_SIZE; col++){
+            System.out.print("   " + col + "   ");
+        }
+        System.out.println();
     }
 }
