@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -57,5 +59,25 @@ public class Main {
 
          */
         Board new_board = new Board();
+        new_board.startGame();
+
+
+        /*
+        in Board create startGame() function
+        Requirements
+        - User Inputs
+            - Row
+            - Col
+        - White's Turn or Black's Turn
+            - How to keep track:
+                Boolean playerTurn
+                    - White -> True
+                    - Black -> False
+                While loop
+                    - Condition: Boolean isGameOver
+                User Inputs
+
+         */
+
     }
 }

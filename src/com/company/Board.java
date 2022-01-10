@@ -1,16 +1,17 @@
 package com.company;
+import java.util.Scanner;
 
 public class Board {
 
     final public Integer ROW_SIZE = 8;
     final public Integer COL_SIZE = 8;
-    Tile[][] my_board = new Tile[ROW_SIZE][COL_SIZE];
+    Tile[][] my_board = new Tile[ROW_SIZE][COL_SIZE]; //This is an empty 2D array. No tiles are present
     public Boolean isGameOver = false;
+    public Boolean playerTurn = true;
 
     public Board(){
         setupBoard();
         setupPieces();
-        printBoard();
     }
 
     public void setupBoard(){
@@ -66,5 +67,39 @@ public class Board {
             }
             displayLines();
         }
+    }
+
+
+
+    public void startGame(){
+        Scanner my_scanner_object = new Scanner(System.in);
+        while (!isGameOver){
+            printBoard();
+            if (playerTurn == true){
+                System.out.println("White's Turn");
+            }
+            else {
+                System.out.println("Black's Turn");
+            }
+
+            System.out.println("Please enter current piece row: ");
+            Integer currentPieceRow = my_scanner_object.nextInt();
+
+            System.out.println("Please enter current place column: ");
+            Integer currentPieceCol = my_scanner_object.nextInt();
+
+            System.out.println("Please enter which row to move the piece: ");
+            Integer currentNewRow = my_scanner_object.nextInt();
+
+            System.out.println("Please enter which column to move the piece: ");
+            Integer currentNewCol = my_scanner_object.nextInt();
+
+            playerTurn = !playerTurn;
+
+
+        }
+
+
+
     }
 }
