@@ -1,11 +1,11 @@
 package com.company;
-
+import java.util.Scanner;
 public class Tile {
 
     Piece curr_piece;
     Boolean isOccupied = false;
 
-    Integer my_int = 5;
+    Integer my_int = 5; // Creating a variable that can hold integers, null
 
 
     public Tile(){

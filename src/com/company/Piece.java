@@ -1,5 +1,5 @@
 package com.company;
-
+import java.util.Scanner;
 public class Piece {
 
     public String color;
