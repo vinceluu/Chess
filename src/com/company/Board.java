@@ -114,4 +114,8 @@ public class Board {
     public void setPlayerTurn(Boolean newPlayerTurn){
         this.playerTurn = newPlayerTurn;
     }
+
+    public void setIsGameOver(Boolean newIsGameOver){
+        this.isGameOver = newIsGameOver;
+    }
 }
