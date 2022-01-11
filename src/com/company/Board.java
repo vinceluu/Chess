@@ -61,6 +61,11 @@ public class Board {
 
     public void printBoard(){
         System.out.println("Current Board: ");
+        System.out.print("  ");
+        for (int col = 0; col < COL_SIZE; col ++) {
+            System.out.print("-----| ");
+        }
+        System.out.println();
         for (int row = 0; row < ROW_SIZE; row ++){
             System.out.print(row + " ");
             for (int col = 0; col < COL_SIZE; col++){
