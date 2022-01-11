@@ -11,6 +11,33 @@
     - Boolean to keep track of whether or not the game is over
     - While loop to continue looping while the game is not over
     - Promps for current piece row, current piece col and then desired destination row, destination column
+### 3. Move Pawn
+  - Requirements
+    - What are you given?
+      - CurrRow
+      - CurrCol
+      - DestRow
+      - DestCol
+    - Pawn Class
+      - Inherit Piece
+        - Should not have an empty constructor
+          - Pawn has to have a type and a color
+      - Boolean hasMoved 
+      - Function Boolean validPawnMove()
+        - numSpaces moved (1 or 2 depending on hasMoved)
+        - Can't move diagonally
+    - Board -> Boolean validMove()
+      - It needs to be a piece of your color (White should move white pieces) (optional)
+      - Check the type of the piece (highly recommend creating getters)
+      - Now you know it's a pawn -> validPawnMove()
+        - If true
+          - movePiece()
+        - else
+          - Invalid
+    - Board -> movePiece()
+        - Once you move a piece, the current Tile is empty
+      
+
 
 ## Change History
 
