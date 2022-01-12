@@ -22,6 +22,7 @@
       - Inherit Piece
         - Should not have an empty constructor
           - Pawn has to have a type and a color
+          - assert that type == "P"
       - Boolean hasMoved 
       - Function Boolean validPawnMove()
         - numSpaces moved (1 or 2 depending on hasMoved)

@@ -53,7 +53,36 @@ public class Main {
         - Is the move valid?
         - Is it capturing or is the tile empty?
 
+        startGame(){
+        while(notOver){
+            promptPlayer()
+            }
+        }
 
+        Recursive Pseudo code
+        promptPlayer(){
+
+            // get the row, col, dest_row, dest_col
+            // if validMove()
+            //     movePiece()
+            // else{
+            //     promptPlayer()
+
+       While loop pseudo code
+       promptPlayer(){
+          // flag
+          Boolean completeTurn = false
+          while !completeTurn{
+             // get the row, col, dest_row, dest_col
+            // if validMove()
+            //     movePiece()
+            //      completeTurn = True
+            // else{
+                // do nothing
+          }
+       }
+
+        }
 
          */
         Board new_board = new Board();
