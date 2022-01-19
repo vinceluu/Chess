@@ -69,18 +69,135 @@ public class Main {
             //     promptPlayer()
 
        While loop pseudo code
+
+       Integer my_int;
+
        promptPlayer(){
           // flag
           Boolean completeTurn = false
+          // local variables
+          Integer currRow;
+          Integer currCol;
+          Integer destRow;
+          Integer destCol;
           while !completeTurn{
-             // get the row, col, dest_row, dest_col
-            // if validMove()
-            //     movePiece()
-            //      completeTurn = True
+            currRow = userInput1
+            currCol = userInput2
+            destRow = userInput3
+            destCol = userInput4
+
+            // if validMove(currRow, currCol, destRow, destCol)
+            //     movePiece(currRow, currCol, destRow, destCol)
+            //     completeTurn = true
             // else{
                 // do nothing
           }
        }
+
+       Board level
+       public void movePiece(currRow, currCol, destRow, destCol){
+            this.board[destRow][destCol].curr_piece = this.board[currRow][currCol].curr_piece
+            this.board[currRow][currCol].curr_piece = new EmptyPiece()
+       }
+
+
+       (Biggest to lowest)
+       Board 2d array
+       Tile (each index of the 2d array)
+       Piece
+        - validPawnMove (each piece's validation)
+
+       Board Class validMove()
+
+       double my_double = 3.5;
+
+       int my_int = (int)my_double;
+
+       my_int -> 3
+
+
+
+       What is the goal of validMove at the board level?
+       - Check requirements at the board level (i.e. picking coordinates within the board)
+       - Figure out the piece type
+       - and then call the corresponding validPieceMove()
+
+       validMove(currRow, currCol, destRow, destCol){
+       # check the dimensions of the board
+       if !not in the dimensions{
+            return false
+       }
+       if this.my_board[currRow][currCol].curr_piece.type == "P"{
+           if (Pawn)this.my_board[currRow][currCol].curr_piece.validPawnMove(currRow, currCol, destRow, destCol)
+                return true
+           else{
+                return false
+           }
+       }
+       elif this.my_board[currRow][currCol].curr_piece.type == "B"{
+           if (Bishop)this.my_board[currRow][currCol].curr_piece.validBishopMove()
+                return true
+           else{
+                return false
+           }
+           .
+           .
+           .
+       }
+       ____________________________________________________________________________________________
+
+       class Pawn
+            hasMoved = false
+            type = "P" (inherited)
+            color = "B" or "W" (inherited)
+
+
+            public Boolean validPawnMove(currRow, currCol, destRow, destCol){
+
+                1. If it hasn't moved, 0 < num_spaces <= 2
+                2. If it has moved, num_spaces == 1
+                3. Cannot move diagonally
+
+                How do you calc num_spaces?
+                    1. abs(destRow - currRow) plausible, but be careful of backward inputs
+                    2.
+                        if this.color == "W"{
+                            num_spaces = currRow - destRow
+
+                        }
+                        else{
+                            num_spaces = destRow - currRow
+                        }
+
+                if !hasMoved {
+                    if numSpaces < 0 or num_spaces > 2
+                        return false
+                }
+                if hasMoved {
+                    if numSpaces != 1{
+
+                        return false
+                    }
+                }
+                How do you check if it's moved diagonally?
+                if destCol != currCol{
+                    return false
+                }
+
+                ___________________________________
+
+                // Hey you passed all checks, so this means it's a valid move
+                if hasMoved == false{
+                    hasMoved = true
+                }
+
+                return true
+            }
+
+
+
+       }
+
 
         }
 
