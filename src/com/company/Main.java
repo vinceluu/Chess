@@ -123,12 +123,13 @@ public class Main {
        - and then call the corresponding validPieceMove()
 
        validMove(currRow, currCol, destRow, destCol){
+       Piece movingPiece = this.my_board[currRow][currCol].current_piece
        # check the dimensions of the board
        if !not in the dimensions{
             return false
        }
        if this.my_board[currRow][currCol].curr_piece.type == "P"{
-           if (Pawn)this.my_board[currRow][currCol].curr_piece.validPawnMove(currRow, currCol, destRow, destCol)
+           if ((Pawn)movingPiece).validPawnMove(destRow, destCol);
                 return true
            else{
                 return false
