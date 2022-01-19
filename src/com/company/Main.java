@@ -77,6 +77,33 @@ public class Main {
                     - Condition: Boolean isGameOver
                 User Inputs
 
+
+
+        Move Pawn
+        - Pawn Class
+            - Should not have an empty constructor
+                - Pawn has to have a type and a color
+            - Boolean hasMoved
+            - Functiton that returns a Boolean valid PawnMoved
+                - numSpaces moved (1 or 2 depending on hasMoved)
+                - Can't move diagonally
+
+        - Board -> Boolean validMove
+            - It needs to be a piece of your color (Optional)
+            - Check the type of the piece (highly recommend getting getters)
+            - Now you know its a pawn -> call validPawnMove ()
+                - If true
+                    - movePiece()
+                - else
+                    - Invalid
+
+        - Board -> movePiece()
+            - Once you move a piece , the current Tile is empty
+
+        - What are you given?
+            - Current row (CurrRow), column (CurrCol), destination row (DesRow), and destination column (DestCol)
+
+
          */
 
     }

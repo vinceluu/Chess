@@ -24,8 +24,8 @@ public class Board {
 
     public void setupPieces(){
         for (int col = 0; col < this.COL_SIZE; col ++){
-            my_board[6][col] = new Tile(new Piece("W", "P"));
-            my_board[1][col] = new Tile(new Piece("B", "P"));
+            my_board[6][col] = new Tile(new Pawn("W", "P"));
+            my_board[1][col] = new Tile(new Pawn("B", "P"));
         }
         //White
         my_board[7][0] = new Tile(new Piece("W", "R"));
@@ -46,8 +46,6 @@ public class Board {
         my_board[0][5] = new Tile(new Piece("B", "B"));
         my_board[0][3] = new Tile(new Piece("B", "Q"));
         my_board[0][4] = new Tile(new Piece("B", "K"));
-
-        //Black
 
     }
 
@@ -100,10 +98,10 @@ public class Board {
             Integer currentPieceCol = my_scanner_object.nextInt();
 
             System.out.println("Please enter which row to move the piece: ");
-            Integer currentNewRow = my_scanner_object.nextInt();
+            Integer NewRow = my_scanner_object.nextInt();
 
             System.out.println("Please enter which column to move the piece: ");
-            Integer currentNewCol = my_scanner_object.nextInt();
+            Integer NewCol = my_scanner_object.nextInt();
 
             playerTurn = !playerTurn;
 
