@@ -1,7 +1,6 @@
 package com.company;
 import java.util.Scanner;
 public class Piece {
-
     public String color;
     public String type;
 
@@ -20,8 +19,8 @@ public class Piece {
         return this.color + this.type;
     }
 
-    public void setPiece(String new_color, String new_type){
-        this.color = new_color;
-        this.type = new_type;
+    public void setPiece(String newColor, String newType){
+        this.color = newColor;
+        this.type = newType;
     }
 }

@@ -2,19 +2,16 @@ package com.company;
 import java.util.Scanner;
 public class Tile {
 
-    Piece curr_piece;
-    Boolean isOccupied = false;
-
-    Integer my_int = 5; // Creating a variable that can hold integers, null
-
+    public Piece currPiece;
+    public Boolean isOccupied = false;
 
     public Tile(){
-        this.curr_piece = new EmptyPiece();
+        this.currPiece = new EmptyPiece();
     }
 
-    public Tile(Piece new_piece){
+    public Tile(Piece newPiece){
 
-        this.curr_piece = new_piece;
+        this.currPiece = newPiece;
         this.isOccupied = true;
     }
 }
