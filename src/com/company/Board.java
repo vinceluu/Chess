@@ -26,7 +26,7 @@ public class Board {
 
     public void setupPieces(){
         for (int col = 0; col < this.COL_SIZE; col ++){
-            myBoard[6][col] = new Tile(new Piece("W", "P"));
+            myBoard[6][col] = new Tile(new Pawn("W", "P"));
         }
         myBoard[7][0] = new Tile(new Piece("W", "R"));
         myBoard[7][1] = new Tile(new Piece("W", "N"));
@@ -38,7 +38,7 @@ public class Board {
         myBoard[7][7] = new Tile(new Piece("W", "R"));
 
         for (int col = 0; col < this.COL_SIZE; col ++){
-            myBoard[1][col] = new Tile(new Piece("B", "P"));
+            myBoard[1][col] = new Tile(new Pawn("B", "P"));
         }
         myBoard[0][0] = new Tile(new Piece("B", "R"));
         myBoard[0][1] = new Tile(new Piece("B", "N"));
@@ -115,7 +115,7 @@ public class Board {
     public Boolean isValidMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
         Piece movingPiece = this.myBoard[currRow][currCol].currPiece;
         if (movingPiece.type == "P"){
-            if ((Pawn)(movingPiece.isValidPawnMove(currRow, currCol, destRow, destCol))) {
+            if (((Pawn)movingPiece).isValidPawnMove(currRow, currCol, destRow, destCol)) {
                 // function not being called
                 return true;
             }

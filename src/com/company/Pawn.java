@@ -5,10 +5,8 @@ public class Pawn extends Piece {
     public Boolean hasMoved = false;
     public Integer numSpaces;
 
-    public Pawn(String color, String type, Integer currRow, Integer currCol) {
-        this.color = color;
-        this.type = type;
-
+    public Pawn(String color, String type) {
+        super(color, type);
     }
 
     public void setHasMoved(Boolean hasMoved){
