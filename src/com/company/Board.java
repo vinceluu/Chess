@@ -14,6 +14,27 @@ public class Board {
         setupPieces();
     }
 
+    public Boolean validMove(Integer currRow, Integer currCol, Integer newRow, Integer newCol){
+
+        Piece movingPiece = this.my_board[currRow][currCol].curr_piece;
+
+        if(ROW_SIZE > 8 || COL_SIZE > 8){
+            return false;
+        }
+
+        if(this.my_board[currRow][currCol].curr_piece.type == "P"){
+            if(((Pawn)movingPiece).validPawnMove(currRow, currCol, newRow, newCol)){
+                return true;
+            }
+        }
+
+        else{
+            return false;
+        }
+        return false; // we never found a valid piece
+    }
+
+
     public void setupBoard(){
         for (int row = 0; row < this.ROW_SIZE; row++){
             for (int col = 0; col < this.COL_SIZE; col++){
@@ -77,8 +98,6 @@ public class Board {
         }
         System.out.println();
     }
-
-
 
     public void startGame(){
         Scanner my_scanner_object = new Scanner(System.in);

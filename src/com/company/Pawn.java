@@ -8,7 +8,6 @@ public class Pawn extends Piece {
     }
 
     public Boolean validPawnMove(Integer currRow, Integer currCol, Integer newRow, Integer newCol) {
-        getColor();
         Integer num_spaces;
 
         if(getColor() == "B"){
@@ -20,7 +19,7 @@ public class Pawn extends Piece {
         }
 
         if(hasMoved == false){
-            if(0 < num_spaces || num_spaces >= 2){
+            if(num_spaces < 0 || num_spaces > 2){
                 return false;
             }
         }
@@ -31,7 +30,11 @@ public class Pawn extends Piece {
             }
         }
 
-        if(currRow != currCol){
+        if(currRow == newRow){
+            return false;
+        }
+
+        if(currCol != newCol){
             return false;
         }
 
