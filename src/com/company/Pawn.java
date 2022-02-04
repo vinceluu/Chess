@@ -9,11 +9,11 @@ public class Pawn extends Piece {
         super(color, type);
     }
 
-    public void setHasMoved(Boolean hasMoved){
-        this.hasMoved = !hasMoved;
-    }
-
     public Boolean isValidPawnMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
+        if (currRow == destRow){
+            return false;
+        }
+
         if (this.color == "W"){
             numSpaces = currRow - destRow;
         }
@@ -32,17 +32,37 @@ public class Pawn extends Piece {
             }
         }
 
-        if (destCol != currCol){
+        if (destCol != currCol) {
             return false;
         }
+                //(destRow + 1 && destCol + 1) || (destRow + 1 && destCol - 1)
+        // if there is a piece on destRow + 1 && destCol +/- 1 for white, return true
+        // if there is a piece on destRow - 1 && destCol +/- 1 for black, return true
+//        if (isValidPawnCapture(currRow, currCol, destRow, destCol)){
+//            return true;
+            // placeholder for capturing
+//        }
 
         if (!hasMoved){
             hasMoved = true;
         }
         return true;
+
+//    public Boolean isDestPieceOccupied(Integer destRow, Integer destCol) {
+//        if (Tile(Piece){
+//            return true;
+//        }
+//        else{
+//            return false;
+//        }
     }
-
-
+//    public Boolean isValidPawnCapture(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
+//        if (this.color == "W") {
+//            if ((currRow - destRow == 1) && (Math.abs(destCol - currCol) == 1) && isDestPieceOccupied(destRow, destCol)){
+//                return true;
+//        }
+//        }
+//    }
 
 
 }

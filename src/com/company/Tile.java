@@ -14,4 +14,8 @@ public class Tile {
         this.currPiece = newPiece;
         this.isOccupied = true;
     }
+
+    public Boolean getIsOccupied(){
+        return this.isOccupied;
+    }
 }

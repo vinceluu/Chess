@@ -19,6 +19,14 @@ public class Piece {
         return this.color + this.type;
     }
 
+    public String getColor(){
+        return this.color;
+    }
+
+    public String getType(){
+        return this.type;
+    }
+
     public void setPiece(String newColor, String newType){
         this.color = newColor;
         this.type = newType;

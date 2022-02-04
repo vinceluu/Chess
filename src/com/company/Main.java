@@ -118,7 +118,7 @@ public class Main {
                 - Can't move diagonally
         - Board -> Boolean validMove()
             - It needs to be a piece of your color (White should move white pieces)
-            - Check the type of the piece (create getters)
+            - Check the typ e of the piece (create getters)
             - Now you know it's a pawn -> Call validPawnMove()
                 - If true
                     - movePiece()

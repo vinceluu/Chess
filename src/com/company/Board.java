@@ -80,43 +80,60 @@ public class Board {
     }
 
     public void startGame(){
+        while (!isGameOver) {
+            printBoard();
+            promptPlayer();
+        }
+    }
+
+    public void promptPlayer(){
         Scanner playerInput = new Scanner(System.in);
         Integer currRow;
         Integer currCol;
         Integer destRow;
         Integer destCol;
-        while (!isGameOver) {
-            printBoard();
-
-            if (playerTurn = true) {
-                System.out.println("White's turn.");
-            }
-            else{
-                System.out.println("Black's turn.");
-            }
-            System.out.println("Please enter current piece row: ");
-            currRow = playerInput.nextInt();
-            System.out.println("Please enter current piece column: ");
-            currCol = playerInput.nextInt();
-            System.out.println("Please enter which row to move the piece: ");
-            destRow = playerInput.nextInt();
-            System.out.println("Please enter which column to move the piece: ");
-            destCol = playerInput.nextInt();
-            if (isValidMove(currRow, currCol, destRow, destCol)){
-                movePiece(currRow, currCol, destRow, destCol);
-            }
-            else{
-            System.out.println("Invalid move.");
-            }
+        Boolean completePrompt = false;
+        if (playerTurn) {
+            System.out.println("White's turn.");
+        }
+        else{
+            System.out.println("Black's turn.");
+        }
+        System.out.println("Please enter current piece row: ");
+        currRow = playerInput.nextInt();
+        System.out.println("Please enter current piece column: ");
+        currCol = playerInput.nextInt();
+        System.out.println("Please enter which row to move the piece: ");
+        destRow = playerInput.nextInt();
+        System.out.println("Please enter which column to move the piece: ");
+        destCol = playerInput.nextInt();
+        if (isValidMove(currRow, currCol, destRow, destCol)){
+            movePiece(currRow, currCol, destRow, destCol);
             playerTurn = !playerTurn;
         }
+        else{
+            System.out.println("Invalid move.");
+            promptPlayer();
         }
+
+    }
 
     public Boolean isValidMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
         Piece movingPiece = this.myBoard[currRow][currCol].currPiece;
+        Piece destPiece = this.myBoard[destRow][destCol].currPiece;
+        if (destRow < 0 || destRow > 7){
+            return false;
+        }
+        if (destCol < 0 || destCol > 7){
+            return false;
+        }
+
+        if ((movingPiece.getColor().equals("W") && !playerTurn) || movingPiece.getColor().equals("B") && playerTurn){
+            System.out.println("Can't move opponent's piece.");
+            return false;
+        }
         if (movingPiece.type == "P"){
             if (((Pawn)movingPiece).isValidPawnMove(currRow, currCol, destRow, destCol)) {
-                // function not being called
                 return true;
             }
             else{
@@ -132,10 +149,9 @@ public class Board {
 
 
     public void movePiece(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
-        if (isValidMove(currRow, currCol, destRow, destCol)){
-            myBoard[destRow][destCol] = new Tile(new Piece());
-            myBoard[currRow][currCol] = new Tile();
+        Piece movingPiece = this.myBoard[currRow][currCol].currPiece;
+        Piece destPiece = this.myBoard[destRow][destCol].currPiece;
+        this.myBoard[destRow][destCol].currPiece = movingPiece;
+        this.myBoard[currRow][currCol].currPiece = new EmptyPiece();
         }
-
-    }
 }
