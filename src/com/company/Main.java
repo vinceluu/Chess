@@ -205,6 +205,50 @@ public class Main {
                   hasMoved = true
                   }
               return true;
+
+              Board level
+              - if there's a piece you're capturing
+                - check validPawnCapture
+                - Capturing an opposite colored piece
+              - else:
+                - check validPawnMove
+
+                How do we check if the pawn moves through a piece?
+                - Why at the board level?
+                    - We have information about other pieces
+                - Goal : To create a single function that accounts for all the pieces and whether or not they move through another piece
+                    - VERTICAL
+                    - HORIZONTAL
+                    - DIAGONAL
+
+                    if type == P{
+                        if dest == EmptyPiece(){
+                            if isValidPawnMove(){
+                                if emptyPath("VERTICAL"){
+                                    return true;
+                        else{
+                            if validPawnCapture{
+                                return true;
+                        return false;
+
+                   if type == R{
+                        if dest == EmptyPiece(){
+                            if isValidRookMove(){
+                                if emptyPath("VERTICAL") or emptyPath("HORIZONTAL"){
+                                    return true;
+                        else{
+                            if validPawnCapture{
+                                return true;
+                        return false;
+
+              public void emptyPath(currRow, currCol, destRow, destCol, String direction){
+                    if direction.equals("VERTICAL"){
+                        check logic here with for loop;
+
+                    if direction.equals("HORIZONTAL"){
+                        check logic here with for loop;
+              Pawn level
+              validPawnCapture
          */
     }
 }

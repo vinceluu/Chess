@@ -121,6 +121,14 @@ public class Board {
     public Boolean isValidMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
         Piece movingPiece = this.myBoard[currRow][currCol].currPiece;
         Piece destPiece = this.myBoard[destRow][destCol].currPiece;
+
+        if (currRow < 0 || currRow > 7){
+            return false;
+        }
+        if (currCol < 0 || currCol > 7){
+            return false;
+        }
+
         if (destRow < 0 || destRow > 7){
             return false;
         }
@@ -136,6 +144,11 @@ public class Board {
             if (((Pawn)movingPiece).isValidPawnMove(currRow, currCol, destRow, destCol)) {
                 return true;
             }
+            else if (((Pawn)movingPiece).isValidPawnCapture(currRow, currCol, destRow, destCol)){
+                if (myBoard[destRow][destCol].isOccupied){
+                    return true;
+                }
+            }
             else{
                 return false;
             }
@@ -144,9 +157,8 @@ public class Board {
             return false;
             // placeholder for other pieces
         }
+        return false;
     }
-
-
 
     public void movePiece(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
         Piece movingPiece = this.myBoard[currRow][currCol].currPiece;

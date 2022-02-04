@@ -9,62 +9,60 @@ public class Pawn extends Piece {
         super(color, type);
     }
 
-    public Boolean isValidPawnMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
-        if (currRow == destRow){
+    public Boolean isValidPawnMove(Integer currRow, Integer currCol, Integer destRow, Integer destCol) {
+        if (currRow == destRow) {
             return false;
         }
 
-        if (this.color == "W"){
+        if (this.color == "W") {
             numSpaces = currRow - destRow;
-        }
-        else{
+        } else {
             numSpaces = destRow - currRow;
         }
 
-        if (!hasMoved){
-            if (numSpaces <= 0 || numSpaces > 2){
+        if (!hasMoved) {
+            if (numSpaces <= 0 || numSpaces > 2) {
                 return false;
             }
         }
-        if (hasMoved){
-            if (numSpaces != 1){
+        if (hasMoved) {
+            if (numSpaces != 1) {
                 return false;
             }
         }
 
         if (destCol != currCol) {
-            return false;
+            if (isValidPawnCapture(currRow, currCol, destRow, destCol)){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
-                //(destRow + 1 && destCol + 1) || (destRow + 1 && destCol - 1)
-        // if there is a piece on destRow + 1 && destCol +/- 1 for white, return true
-        // if there is a piece on destRow - 1 && destCol +/- 1 for black, return true
-//        if (isValidPawnCapture(currRow, currCol, destRow, destCol)){
-//            return true;
-            // placeholder for capturing
-//        }
 
-        if (!hasMoved){
+
+        if (!hasMoved) {
             hasMoved = true;
         }
         return true;
-
-//    public Boolean isDestPieceOccupied(Integer destRow, Integer destCol) {
-//        if (Tile(Piece){
-//            return true;
-//        }
-//        else{
-//            return false;
-//        }
     }
-//    public Boolean isValidPawnCapture(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
-//        if (this.color == "W") {
-//            if ((currRow - destRow == 1) && (Math.abs(destCol - currCol) == 1) && isDestPieceOccupied(destRow, destCol)){
-//                return true;
-//        }
-//        }
-//    }
 
+    public Boolean isValidPawnCapture(Integer currRow, Integer currCol, Integer destRow, Integer destCol){
+        // for diagonal movement only
+        if (this.color == "W") {
+            numSpaces = currRow - destRow;
+        }
+        else {
+            numSpaces = destRow - currRow;
+        }
 
+        if (Math.abs(destCol - currCol) == 1){
+            if (numSpaces == 1){
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 
